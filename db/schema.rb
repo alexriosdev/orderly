@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_11_09_180507) do
 
   create_table "admins", force: :cascade do |t|
+    t.string "name"
     t.string "username"
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
@@ -22,9 +23,11 @@ ActiveRecord::Schema.define(version: 2020_11_09_180507) do
   create_table "appointments", force: :cascade do |t|
     t.string "purpose"
     t.string "message"
+    t.boolean "complete", default: false
     t.datetime "appointment_time"
     t.integer "employee_id"
     t.integer "client_id"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,12 +36,14 @@ ActiveRecord::Schema.define(version: 2020_11_09_180507) do
     t.string "name"
     t.string "phone_number"
     t.string "email"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -52,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_11_09_180507) do
     t.string "title"
     t.string "office"
     t.integer "department_id"
+    t.integer "admin_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

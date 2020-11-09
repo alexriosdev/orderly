@@ -9,6 +9,7 @@ class CreateEmployees < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :office
       t.integer :department_id
+      t.integer :admin_id
 
       t.timestamps
     end

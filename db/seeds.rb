@@ -5,16 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require 'faker'
 Department.destroy_all
 Employee.destroy_all
 Client.destroy_all
 Appointment.destroy_all
 
+# Create admin
+Admin.create(
+  name: "Alex",
+  username: "alx",
+  password: "123"
+)
+
 # Create two departments
 2.times {
   Department.create(
-    name: Faker::Job.field
+    name: Faker::Job.field,
+    admin_id: Admin.first.id
   )
 }
 
@@ -28,7 +37,8 @@ Appointment.destroy_all
     phone_number: Faker::PhoneNumber.phone_number,
     title: Faker::Job.position,
     office: Faker::PhoneNumber.phone_number,
-    department_id: Department.first.id
+    department_id: Department.first.id,
+    admin_id: Admin.first.id
   )
 }
 
@@ -42,7 +52,8 @@ Appointment.destroy_all
     phone_number: Faker::PhoneNumber.phone_number,
     title: Faker::Job.position,
     office: Faker::PhoneNumber.phone_number,
-    department_id: Department.second.id
+    department_id: Department.second.id,
+    admin_id: Admin.first.id
   )
 }
 
@@ -51,7 +62,8 @@ Appointment.destroy_all
   Client.create(
     name: Faker::Name.unique.name,
     phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email
+    email: Faker::Internet.email,
+    admin_id: Admin.first.id
   )
 }
 
@@ -61,7 +73,8 @@ Appointment.create(
   message: Faker::Lorem.sentence,
   appointment_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long),
   employee_id: Employee.first.id,
-  client_id: Client.first.id
+  client_id: Client.first.id,
+  admin_id: Admin.first.id
 )
 
 # MODELS AND MIGRATIONS COMPLETE

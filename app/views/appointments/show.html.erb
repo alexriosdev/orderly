@@ -1,0 +1,9 @@
+<h1>Appointment Show</h1>
+<h1><%= @appointment.appointment_time %></h1>
+<label>Employee: <%= link_to @appointment.employee.name, employee_path(@appointment.employee.id) %></label> <br>
+<label>Client: <%= link_to @appointment.client.name, client_path(@appointment.client.id) %></label> <br>
+<label>Purpose: <%= @appointment.purpose %></label> <br>
+<label>Message: <%= @appointment.message %></label> <br>
+
+<br><br>
+<%= link_to "Back", appointments_path %>

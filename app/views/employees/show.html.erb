@@ -1,0 +1,11 @@
+<h1>Employee Show</h1>
+<h1><%= @employee.name %></h1>
+<label>Title: <%= @employee.title %></label> <br>
+<label>Email: <%= @employee.email %></label> <br>
+<label>Phone Number: <%= @employee.phone_number %></label> <br>
+<label>Department: <%= @employee.department.name %></label> <br>
+<label>Office: <%= @employee.office %></label> <br>
+
+<br><br>
+<%= link_to "Back", employees_path %>
+
