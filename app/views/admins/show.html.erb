@@ -1,16 +1,11 @@
 <h1>Here's a list of all the appointments</h1>
 <% @admin.appointments.each do |appointment|%>
-  <li> <%= appointment.appointment_time.strftime("%A, %B %d, %Y, %I:%M %p") %></li>
+  <div>
+    <%= appointment.appointment_time.strftime("%A, %B %d, %Y, %I:%M %p") %> <br>
+    Employe: <%= appointment.employee.name %> <br>
+    Client: <%= appointment.client.name %> <br>
+    Message :<%= appointment.message %>
+  </div>
 <% end %>
-
-<!---
-<h1>Here's a list of all your employees</h1>
-<%= @admin.employees.each do |employee|%>
-  <li> <%=employee.name%></li>
-<% end %>
-<br>
-<h1>Here's a list of all the clients</h1>
-<%= @admin.clients.each do |client|%>
-  <li> <%=client.name%></li>
-<% end %>
---->
+<br><br>
+<%= link_to "Create new appointment", new_appointment_path %>
