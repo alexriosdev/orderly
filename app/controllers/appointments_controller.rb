@@ -16,9 +16,9 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(strong_params)
-    @appointment.admin_id = Admin.first
+    @appointment.admin_id = Admin.first.id
     @appointment.save
-    redirect_to admin_path(Admin.first)
+    redirect_to admin_path(Admin.first.id)
   end
 
   private
