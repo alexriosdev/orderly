@@ -1,0 +1,15 @@
+<div class="header">
+
+<h1 style="text-align:center">Admin Index</h1>
+</div>
+<!-- <a href="employee.html">Employee</a> -->
+
+
+<% @admins.each do |admin| %>
+  <li><%= link_to admin.name, admin_path(admin) %></li>
+<% end %>
+
+<br> <br>
+<!-- 
+<%= link_to "Visit Clients", clients_path %> 
+-->
