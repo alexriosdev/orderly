@@ -1,14 +1,24 @@
+<section class="section">
+	<div class="container">
+		<h1 class="title is-1 has-text-centered"> Appointment Schedule</h1>
 
-<h1 style="text-align:center"> Appointment Schedule</h1>
+		<% @appointments.each_with_index do |appointment, index| %>
+		<div class="block">
+			<div class="box">
+				<%= link_to appointment.start_time.strftime("%A, %B %d, %Y") , appointment_path(appointment), class: "title is-3" %>
+				<p>
+					<%= appointment.start_time.strftime("%I:%M %p") %>
+					- <%= appointment.end_time.strftime("%I:%M %p") %>
+				</p>
+			</div>
+		</div>
+		<% end %>
 
+		<div class="block">
+			<%= link_to "New Appointment", new_appointment_path, class: "button is-primary" %>
+		</div>
 
-
-
-      <h2> Appointment </h2>
-<% @appointments.each do |appointment| %>
-  <li><%= link_to appointment.appointment_time, appointment_path(appointment) %></li>
-<% end %>
- 
-
-<br> <br>
-<%= link_to "Visit Clients", clients_path %>
+		<br> <br>
+		<%= link_to "Visit Clients", clients_path, class: "button" %>	
+	</div>
+</section>

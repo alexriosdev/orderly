@@ -1,8 +1,14 @@
-<h1>Employee Show</h1>
-<h1><%= @client.name %></h1>
-<label>Email: <%= @client.email %></label> <br>
-<label>Phone Number: <%= @client.phone_number %></label> <br>
+<section class="section">
+  <div class="container">
+    <div class="box">
+      <h1 class="title is-3"><%= @client.name %></h1>
+      <p>Email: <%= @client.email %></p>
+      <p>Phone Number: <%= @client.phone_number %></p>    
+    </div>
+    <div class="block">
+      <%= link_to "Back", clients_path %>
+    </div>      
+  </div>
+</section>
 
-<br><br>
-<%= link_to "Back", clients_path %>
 

@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 2020_11_09_180507) do
     t.string "purpose"
     t.string "message"
     t.boolean "complete", default: false
-    t.datetime "appointment_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer "employee_id"
     t.integer "client_id"
     t.integer "admin_id"

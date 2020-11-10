@@ -71,7 +71,8 @@ Admin.create(
 Appointment.create(
   purpose: Faker::Lorem.word,
   message: Faker::Lorem.sentence,
-  appointment_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long),
+  start_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long),
+  end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long),
   employee_id: Employee.first.id,
   client_id: Client.first.id,
   admin_id: Admin.first.id

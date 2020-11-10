@@ -1,6 +1,20 @@
-<h1 style="text-align:center">Client Index</h1>
+<section class="section">
+  <div class="containter">
+    <h1 class="title has-text-centered">Client List</h1>
 
-
-<% @clients.each do |client| %>
-  <li><%= link_to client.name, client_path(client) %></li>
-<% end %>
+    <% @clients.each do |client| %>
+      <div class="block">
+        <div class="box">
+          <h1 class="title is-4">
+            <%= link_to client.name, client_path(client) %>      
+            <%= link_to "Edit", edit_client_path(client), class: "button is-small is-info"%>
+            <%= link_to "Delete", edit_client_path(client), class: "button is-small is-danger"%>
+          </h1>
+        </div>
+      </div>
+    <% end %>
+    <div class="block">
+      <%= link_to "New Client", new_client_path, class: "button is-primary"%>
+    </div>
+  </div>
+</section>

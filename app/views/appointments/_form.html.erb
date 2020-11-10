@@ -1,0 +1,25 @@
+<div class="block">
+  <div class="box">
+    <%= form_for @appointment do |f| %>
+      <%= f.label "Start Time: "%>
+      <%= f.time_select :start_time, default: {hour: 9, min: 0}, class: "is-multiple" %> <br>
+
+      <%= f.label "End Time: "%>
+      <%= f.time_select :end_time, default: {hour: 9, min: 30}, class: "is-multiple" %> <br>
+
+      <%= f.label "Purpose: "%>
+      <%= f.text_field :purpose %> <br>
+
+      <%= f.label "Message: "%>
+      <%= f.text_field :message %> <br>
+
+      <%= f.label "Employee: "%>
+      <%= f.collection_select :employee_id, @employees, :id, :name %> <br>
+      
+      <%= f.label "Client: "%>
+      <%= f.collection_select :client_id, @clients, :id, :name %> <br> <br>
+
+      <%= f.submit class: "button is-primary"%>
+    <% end %>
+  </div>
+</div>

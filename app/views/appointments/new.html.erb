@@ -1,26 +1,9 @@
-<h1>Create a new appointment</h1>
-<%= form_for @appointment do |f| %>
-  <%= f.label "Time: "%>
-  <%=f.time_select :appointment_time, default: {hour: 9, min: 15} %> <br>
+<section class="section">
+  <div class="container">
+    <h1 class="title is-1 has-text-centered">New Appointment</h1>
+    <%= render "form" %>
 
-  <!--
-  <%= f.text_field :appointment_time %> <br>
-  --->
-
-  <%= f.label "Purpose: "%>
-  <%= f.text_field :purpose %> <br>
-
-  <%= f.label "Message: "%>
-  <%= f.text_field :message %> <br>
-
-  <%= f.label "Employee: "%>
-  <%= f.collection_select :employee_id, @employees, :id, :name %> <br>
-  
-  <%= f.label "Client: "%>
-  <%= f.collection_select :client_id, @clients, :id, :name %> <br> <br>
-
-  <%= f.submit %>
-<% end %>
-
-<br><br>
-<%= link_to "Back", admin_path(Admin.first) %>
+    <br><br>
+    <%= link_to "Back", admin_path(Admin.first) %>
+  </div>
+</section>

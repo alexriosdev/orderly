@@ -1,9 +1,16 @@
-<h1 style="text-align:center">Employee Index</h1>
+<section class="section">
+  <div class="container">
+    <h1 class="title has-text-centered">Employee Index</h1>
+    <% @employees.each do |employee| %>
+      <div class="box">
+        <h3 class="title is-4">
+          <%= link_to employee.name, employee_path(employee) %>
+        </h3>
+      </div>
+    <% end %>
 
+    <br> <br>
+    <%= link_to "Visit Clients", clients_path %>
 
-<% @employees.each do |employee| %>
-  <li><%= link_to employee.name, employee_path(employee) %></li>
-<% end %>
-
-<br> <br>
-<%= link_to "Visit Clients", clients_path %>
+  </div>
+</section>
