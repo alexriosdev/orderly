@@ -13,6 +13,7 @@ Client.destroy_all
 Appointment.destroy_all
 
 # Create admin
+
 Admin.create(
   name: "Alex",
   username: "alx",
