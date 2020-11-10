@@ -1,7 +1,14 @@
-<h1>Appointment Schedule</h1>
+
+<h1 style="text-align:center"> Appointment Schedule</h1>
+
+
+
+
+      <h2> Appointment </h2>
 <% @appointments.each do |appointment| %>
   <li><%= link_to appointment.appointment_time, appointment_path(appointment) %></li>
 <% end %>
+ 
 
 <br> <br>
 <%= link_to "Visit Clients", clients_path %>

@@ -1,4 +1,6 @@
-<h1>Client Index</h1>
+<h1 style="text-align:center">Client Index</h1>
+
+
 <% @clients.each do |client| %>
   <li><%= link_to client.name, client_path(client) %></li>
 <% end %>
