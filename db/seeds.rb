@@ -8,63 +8,50 @@
 
 require 'faker'
 Department.destroy_all
-Employee.destroy_all
+User.destroy_all
 Client.destroy_all
 Appointment.destroy_all
 
-# Create admin
-
-Admin.create(
-  name: "Alex",
-  username: "alx",
-  password: "123"
-)
 
 # Create two departments
 2.times {
   Department.create(
-    name: Faker::Job.field,
-    admin_id: Admin.first.id
+    name: Faker::Job.field
   )
 }
 
-# Employees for first department
-3.times {
-  Employee.create(
-    name: Faker::Name.unique.name,
-    username: Faker::Internet.unique.username,
-    password: nil,
-    email: Faker::Internet.email,
-    phone_number: Faker::PhoneNumber.phone_number,
-    title: Faker::Job.position,
-    office: Faker::PhoneNumber.phone_number,
-    department_id: Department.first.id,
-    admin_id: Admin.first.id
-  )
-}
+# UNABLE TO CREATE USER
+# COULD DEVISE BE THE PROBLEM?
 
-# Employees for second department
-3.times {
-  Employee.create(
-    name: Faker::Name.unique.name,
-    username: Faker::Internet.unique.username,
-    password: nil,
-    email: Faker::Internet.email,
-    phone_number: Faker::PhoneNumber.phone_number,
-    title: Faker::Job.position,
-    office: Faker::PhoneNumber.phone_number,
-    department_id: Department.second.id,
-    admin_id: Admin.first.id
-  )
-}
+# User.create(
+#   name: "Alex Rios",
+#   email: "alexrios.dev@gmail.com",
+#   encrypted_password: "123456789",
+#   phone_number: Faker::PhoneNumber.phone_number,
+#   title: Faker::Job.position,
+#   office: Faker::PhoneNumber.phone_number,
+#   department_id: Department.first.id
+# )
+
+user = User.new(
+  name: "Alex Dynamite",
+  email: "alx@gmail.com",
+  password: "123456789",
+  password_confirmation: "123456789",
+  phone_number: Faker::PhoneNumber.phone_number,
+  title: Faker::Job.position,
+  office: Faker::PhoneNumber.phone_number,
+  department_id: Department.first.id
+)
+# user.skip_confirmation!
+user.save!
 
 # Create client
 3.times {
   Client.create(
     name: Faker::Name.unique.name,
     phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email,
-    admin_id: Admin.first.id
+    email: Faker::Internet.email
   )
 }
 
@@ -74,9 +61,8 @@ Appointment.create(
   message: Faker::Lorem.sentence,
   start_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long),
   end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long),
-  employee_id: Employee.first.id,
-  client_id: Client.first.id,
-  admin_id: Admin.first.id
+  user_id: User.first.id,
+  client_id: Client.first.id
 )
 
 # MODELS AND MIGRATIONS COMPLETE

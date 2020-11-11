@@ -1,4 +1,4 @@
 class Department < ApplicationRecord
-  has_many :employees
-  belongs_to :admin
+  has_many :users
+  # belongs_to :admins
 end

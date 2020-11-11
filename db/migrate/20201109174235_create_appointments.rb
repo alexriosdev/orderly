@@ -6,9 +6,8 @@ class CreateAppointments < ActiveRecord::Migration[6.0]
       t.boolean :complete, default: false
       t.datetime :start_time
       t.datetime :end_time
-      t.integer :employee_id
+      t.integer :user_id
       t.integer :client_id
-      t.integer :admin_id
 
       t.timestamps
     end

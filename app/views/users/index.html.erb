@@ -1,0 +1,16 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title has-text-centered">Employee Index</h1>
+    <% @users.each do |user| %>
+      <div class="box">
+        <h3 class="title is-4">
+          <%= link_to user.name, user_path(user) %>
+        </h3>
+      </div>
+    <% end %>
+
+    <br> <br>
+    <%= link_to "Visit Clients", clients_path %>
+
+  </div>
+</section>

@@ -1,11 +1,11 @@
-class AdminsController < ApplicationController
+class UsersController < ApplicationController
 
   def index
-    @admins = Admin.all
+    @users = User.all
   end
 
   def show
-    @admin = Admin.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   # def new

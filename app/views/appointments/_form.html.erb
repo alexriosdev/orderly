@@ -12,9 +12,6 @@
 
       <%= f.label "Message: "%>
       <%= f.text_field :message %> <br>
-
-      <%= f.label "Employee: "%>
-      <%= f.collection_select :employee_id, @employees, :id, :name %> <br>
       
       <%= f.label "Client: "%>
       <%= f.collection_select :client_id, @clients, :id, :name %> <br> <br>

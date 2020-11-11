@@ -14,7 +14,6 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(strong_params)
-    @client.admin_id = Admin.first.id
     @client.save
     redirect_to clients_path
   end
@@ -25,7 +24,6 @@ class ClientsController < ApplicationController
   def update
     @client.assign_attributes(strong_params)
     @client.update(strong_params)
-    @client.admin_id = Admin.first.id
     @client.save
     redirect_to clients_path
   end

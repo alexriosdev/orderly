@@ -10,28 +10,26 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
-    @employees = Employee.all
     @clients = Client.all
   end
 
   def create
     @appointment = Appointment.new(strong_params)
-    @appointment.admin_id = Admin.first.id
+    @appointment.user_id = User.first.id
     @appointment.save
-    redirect_to admin_path(Admin.first.id)
+    redirect_to user_path(User.first.id)
   end
 
   def edit
-    @employees = Employee.all
     @clients = Client.all
   end
 
   def update
     @appointment.assign_attributes(strong_params)
     @appointment.update(strong_params)
-    @appointment.admin_id = Admin.first.id
+    @appointment.user_id = User.first.id
     @appointment.save
-    redirect_to admin_path(Admin.first.id)
+    redirect_to user_path(User.first.id)
   end
 
   private
@@ -41,7 +39,7 @@ class AppointmentsController < ApplicationController
   end
 
   def strong_params
-    params.require(:appointment).permit(:start_time, :end_time, :purpose, :message, :employee_id, :client_id)
+    params.require(:appointment).permit(:start_time, :end_time, :purpose, :message, :client_id)
   end
 
 end

@@ -5,7 +5,7 @@
       <p>Time: <%= @appointment.start_time.strftime("%I:%M %p") %>
         - <%= @appointment.end_time.strftime("%I:%M %p") %>
       </p>
-      <p>Employee: <%= link_to @appointment.employee.name, employee_path(@appointment.employee.id) %></p>
+      <p>User: <%= link_to @appointment.user.name, user_path(@appointment.user.id) %></p>
       <p>Client: <%= link_to @appointment.client.name, client_path(@appointment.client.id) %></p>
       <p>Purpose: <%= @appointment.purpose %></p>
       <p>Message: <%= @appointment.message %></p>
