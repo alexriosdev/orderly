@@ -23,16 +23,6 @@ Appointment.destroy_all
 # UNABLE TO CREATE USER
 # COULD DEVISE BE THE PROBLEM?
 
-# User.create(
-#   name: "Alex Rios",
-#   email: "alexrios.dev@gmail.com",
-#   encrypted_password: "123456789",
-#   phone_number: Faker::PhoneNumber.phone_number,
-#   title: Faker::Job.position,
-#   office: Faker::PhoneNumber.phone_number,
-#   department_id: Department.first.id
-# )
-
 user = User.new(
   name: "Alex Dynamite",
   email: "alx@gmail.com",

@@ -1,20 +1,19 @@
 <section class="section">
   <div class="container">
-    <h2 class="title is-3 has-text-centered">Forgot your password?</h2>
     <div class="box">
+      <h2 class="title is-3 has-text-centered">Forgot your password?</h2>
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-
+        
         <div class="block">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :email, class: "label"%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
         </div>
-
-
-        <%= f.submit "Send me reset password instructions", class: "button is-info"%>
-
+        
+        <%= f.submit "Send me reset password instructions", class: "button" %>
       <% end %>
-    </div>
-    <%= render "devise/shared/links" %>
+      <hr class="solid">
+      <%= render "devise/shared/links" %>
+    </div>    
   </div>
 </section>

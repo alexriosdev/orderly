@@ -1,16 +1,17 @@
 <section class="section">
   <div class="container">
-    <h2 class="title has-text-centered">Log in</h2>
     <div class="box">
+      <h2 class="title has-text-centered">Log in</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
         <div class="block">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :email, class: "label" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input" %>
         </div>
 
         <div class="block">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.label :password, class: "label" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
         </div>
 
         <% if devise_mapping.rememberable? %>
@@ -22,10 +23,11 @@
 
         <%= f.submit "Log in", class: "button is-success" %>
       <% end %>
-    </div>
 
-    <%= render "devise/shared/links" %>
-  
+      <hr class="solid">
+      <%= render "devise/shared/links" %>
+
+    </div>  
   </div>
 </section>
 

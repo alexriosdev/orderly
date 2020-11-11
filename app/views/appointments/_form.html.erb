@@ -1,22 +1,36 @@
 <div class="block">
   <div class="box">
     <%= form_for @appointment do |f| %>
-      <%= f.label "Start Time: "%>
-      <%= f.time_select :start_time, default: {hour: 9, min: 0}, class: "is-multiple" %> <br>
+    
+      <div class="block label">
+        <%= f.label "Start Time: " %>
+        <%= f.time_select :start_time, default: {hour: 9, min: 0}, class: "is-multiple" %>      
+      </div>
 
-      <%= f.label "End Time: "%>
-      <%= f.time_select :end_time, default: {hour: 9, min: 30}, class: "is-multiple" %> <br>
+      <div class="block label">
+        <%= f.label "End Time: " %>
+        <%= f.time_select :end_time, default: {hour: 9, min: 30}, class: "is-multiple" %>     
+      </div>
 
-      <%= f.label "Purpose: "%>
-      <%= f.text_field :purpose %> <br>
+      <div class="block">
+        <%= f.label "Purpose: " , class: "label"%>
+        <%= f.text_field :purpose, class: "input" %>
+      </div>
 
-      <%= f.label "Message: "%>
-      <%= f.text_field :message %> <br>
+      <div class="block">
+        <%= f.label "Message: ", class: "label"%>
+        <%= f.text_field :message, class: "input" %>      
+      </div>
+
+      <div class="block">
+        <%= f.label "Client: ", class: "label" %>
+        <%= f.collection_select :client_id, @clients, :id, :name, class: "select" %>        
+      </div>
       
-      <%= f.label "Client: "%>
-      <%= f.collection_select :client_id, @clients, :id, :name %> <br> <br>
+      <div class="block">
+        <%= f.submit class: "button is-primary"%>      
+      </div>
 
-      <%= f.submit class: "button is-primary"%>
     <% end %>
   </div>
 </div>
