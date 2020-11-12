@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :phone_number
       t.string :title
       t.string :office
-      t.integer :department_id
+      # t.integer :department_id
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

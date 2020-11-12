@@ -6,6 +6,5 @@ class User < ApplicationRecord
 
   has_many :appointments, dependent: :destroy
   has_many :clients, through: :appointments
-
-  belongs_to :department
+  
 end

@@ -1,15 +1,47 @@
-
 <!--
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://bulma.io">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+--->
 
 <ul class="nav-list">
-            <% if !user_signed_in? %>
-            <div>
-            <li><%= link_to "Login", new_user_session_path %></li>
-            <li><%= link_to "Sign Up", new_user_registration_path %> </li>
-          <% end %>
-          <% if user_signed_in? %>
-            <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %> </li>
-            <li><%= link_to "Edit user", edit_user_registration_path %> </li> 
-          <% end %>
-            </ul>
---->
+  <% if !user_signed_in? %>
+    <li><%= link_to "Login", new_user_session_path %></li>
+    <li><%= link_to "Sign Up", new_user_registration_path %> </li>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %> </li>
+    <li><%= link_to "Edit user", edit_user_registration_path %> </li> 
+  <% end %>
+</ul>

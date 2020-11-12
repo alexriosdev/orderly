@@ -6,16 +6,18 @@ Rails.application.routes.draw do
   # end
   # devise_for :users
   # get 'active-sessions', to: "appointments#active_sessions"
-  # root to: 'home#index'
+  # root to: 'appointments#index'
   # resources :users, only: [:index]
-
-
-  # # working
+  # resources :clients
+  
+  
+  
+  # working
   devise_for :users
+  root to: 'appointments#index'
   resources :users
   resources :clients
   resources :appointments
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # root to: "users#index"
