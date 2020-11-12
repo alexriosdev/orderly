@@ -4,6 +4,7 @@ class AppointmentsController < ApplicationController
   
   def index
     # @appointments = Appointment.all
+    @user = current_user
     @appointments = current_user.appointments.where(user_id: current_user)
   end
 
@@ -17,11 +18,9 @@ class AppointmentsController < ApplicationController
 
   def create
     @appointment = Appointment.new(strong_params)
-    # @appointment.user_id = User.first.id
     @appointment.user_id = current_user.id
     @appointment.save
-    redirect_to appointments_path
-    # redirect_to user_path(User.first.id)
+    redirect_to appointment_path(@appointment)
   end
 
   def edit
@@ -31,9 +30,9 @@ class AppointmentsController < ApplicationController
   def update
     @appointment.assign_attributes(strong_params)
     @appointment.update(strong_params)
-    @appointment.user_id = User.first.id
+    @appointment.user_id = current_user.id
     @appointment.save
-    redirect_to user_path(User.first.id)
+    redirect_to appointment_path(@appointment)
   end
 
   private

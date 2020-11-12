@@ -9,10 +9,15 @@
       <p>Client: <%= link_to @appointment.client.name, client_path(@appointment.client.id) %></p>
       <p>Purpose: <%= @appointment.purpose %></p>
       <p>Message: <%= @appointment.message %></p>
+
+      <div class="block">
+        <%= link_to "Edit", edit_appointment_path, class: "button" %>
+        <%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>   
     </div>
 
     <br><br>
-    <%= link_to "Back", appointments_path, class: "button is-primary" %>
+    <%= link_to "Back", appointments_path, class: "button is-info" %>
   </div>
 </section>
 
