@@ -6,15 +6,18 @@
       <div class="block">
         <div class="box">
           <h1 class="title is-4">
-            <%= link_to client.name, client_path(client) %>      
-            <%= link_to "Edit", edit_client_path(client), class: "button is-small is-info"%>
-            <%= link_to "Delete", edit_client_path(client), class: "button is-small is-danger"%>
+            <%= link_to client.name, client_path(client) %>
           </h1>
+          <p><strong>Email:</strong> <%= client.email %></p>
+          <p><strong>Phone:</strong> <%= client.phone_number %></p>
         </div>
       </div>
     <% end %>
     <div class="block">
-      <%= link_to "New Client", new_client_path, class: "button is-primary"%>
+      <%= link_to "Create Clients", new_client_path, class: "button is-primary"%>
+    </div>
+    <div class="block">
+      <%= link_to "Back", appointments_path, class: "button is-info"%>
     </div>
   </div>
 </section>
