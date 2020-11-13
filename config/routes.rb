@@ -8,9 +8,7 @@ Rails.application.routes.draw do
   # get 'active-sessions', to: "appointments#active_sessions"
   # root to: 'appointments#index'
   # resources :users, only: [:index]
-  # resources :clients
-  
-  
+  # resources :clients  
   
   # working
   devise_for :users

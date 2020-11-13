@@ -1,6 +1,7 @@
 <section class="section">
   <div class="container">
     <div class="box">
+      <%= render 'shared/log' %>    
       <h2 class="title has-text-centered">Log in</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
