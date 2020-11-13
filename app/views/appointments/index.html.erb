@@ -29,6 +29,15 @@
 		<%= link_to "Create Clients", new_client_path, class: "button" %>	
 
 		<br> <br>
-		<%= link_to "Visit Clients", clients_path, class: "button" %>	
+		<%= link_to "Visit Clients", clients_path, class: "button" %>
+
+    <br><br>
+
+
+
+    <% if user_signed_in? %>
+    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "button" %> 
+    <% end %>
+
 	</div>
 </section>

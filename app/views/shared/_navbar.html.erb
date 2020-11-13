@@ -34,14 +34,69 @@
 </nav>
 --->
 
+
+<!--
 <ul class="nav-list">
+  <nav class="navbar is-fixed-top"> 
+  -->
+  
+
+
+
+    
+
+  
+
+<div id="my-navbar">
+  <div class="container">
+  
+
   <% if !user_signed_in? %>
     <li><%= link_to "Login", new_user_session_path %> </li>
     <li><%= link_to "Sign Up", new_user_registration_path %> </li>
   <% end %>
+  
 
   <% if user_signed_in? %>
     <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %> </li>
     <li><%= link_to "Edit user", edit_user_registration_path %> </li> 
   <% end %>
-</ul>
+
+  
+
+           
+
+ <div></div>
+ 
+ 
+<!--
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+           
+          Sign up 
+            <strong></strong>
+ 
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+-->
