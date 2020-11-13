@@ -5,11 +5,10 @@
       <% @appointments.each_with_index do |appointment, index| %>
       <div class="block">
         <div class="box">
-          <%= link_to appointment.start_time.strftime("%A, %B %d, %Y") , appointment_path(appointment), class: "title is-3" %>
-          <p>
-            <%= appointment.start_time.strftime("%I:%M %p") %>
-            - <%= appointment.end_time.strftime("%I:%M %p") %>
-          </p>
+          <%= link_to appointment.purpose, appointment_path(appointment), class: "title is-3" %>
+          <p><strong>With:</strong> <%=appointment.client.name %></p>
+          <p><strong>Date:</strong> <%= appointment.start_date %></p>
+          <p><strong>Time:</strong> <%= appointment.start_hour %> - <%= appointment.end_hour %></p>
         </div>
       </div>
       <% end %>
@@ -25,40 +24,10 @@
 			<%= link_to "Create Appointment", new_appointment_path, class: "button is-primary" %>
 		</div>
 
+		<div class="block">
+      <%= link_to "Visit Clients", clients_path, class: "button" %>	
+		</div>
 		<br> <br>
-		<%= link_to "Create Clients", new_client_path, class: "button" %>	
-
-		<br> <br>
-		<%= link_to "Visit Clients", clients_path, class: "button" %>	
+		
 	</div>
 </section>
-<!--
-<section class="section">
-  <div class="container">
-    <div class="title is-1">Welcome, <%= @user.name %> </div>
-    <div class="title is-3 has-text-centered">Here are your appointments for the week</div>
-    <% @user.appointments.each do |appointment|%>
-      <div class = "block">
-        <div class="box">
-          <div class="title is-4">
-            <%= link_to appointment.start_time.strftime("%A, %B %d, %Y"), appointment_path(appointment) %>
-          </div>
-          <p>Time: <%= appointment.start_time.strftime("%I:%M %p") %>
-          - <%= appointment.end_time.strftime("%I:%M %p") %>          
-          </p>
-          <p>User: <%= appointment.user.name %></p>
-          <p>Client: <%= appointment.client.name %></p>
-          <p>Purpose :<%= appointment.purpose %></p>
-          <p>Message :<%= appointment.message %></p>
-          <div class="block">
-            <%= link_to "Edit", edit_appointment_path(appointment), class: "button is-small" %>
-            <%= link_to "Delete", "google.com", class: "button is-small is-danger" %>      
-          </div>
-        </div>
-      </div> 
-    <% end %>
-    <br><br>
-    <%= link_to "Create new appointment", new_appointment_path, class: "button is-primary" %>
-  </div>
-</section>
---->
