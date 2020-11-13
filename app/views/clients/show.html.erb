@@ -3,9 +3,15 @@
     <div class="box">
       <h1 class="title is-3"><%= @client.name %></h1>
       <p><strong>Email:</strong> <%= @client.email %></p>
-      <p><strong>Phone:</strong>  <%= @client.phone_number %></p>            
-      <%= link_to "Edit", edit_client_path(@client), class: "button is-small"%>
+      <p><strong>Phone:</strong>  <%= @client.phone_number %></p>  
+
+       <div class="field is-grouped">
+      <p class="control">
+
+      <%= link_to "Edit", edit_client_path(@client), class: "button is-small is-danger"%></p>
+      <p>
       <%= button_to "Delete", @client, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-small is-danger" %>
+    </p>
     </div>
     <div class="block">
       <%= link_to "Back", clients_path, class: "button is-info" %>
