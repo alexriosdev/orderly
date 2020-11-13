@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_client, only: [:show, :edit, :update]
+  before_action :find_client, only: [:show, :edit, :update, :destroy]
 
   def index
     @clients = Client.all
@@ -36,6 +36,11 @@ class ClientsController < ApplicationController
       flash[:errors] = @appointment.errors.full_messages
       redirect_to edit_appointment_path
     end
+  end
+  
+  def destroy
+    @client.destroy
+    redirect_to clients_path    
   end
 
   private

@@ -7,10 +7,17 @@
       <p><strong>Client: </strong> <%= link_to @appointment.client.name, client_path(@appointment.client.id) %></p>
       <p><strong>Message: </strong> <%= @appointment.message %></p>
 
-      <div class="block">
+      
+      <div class="field is-grouped">
+      <p class="control">
+     
+        <%= link_to "Edit", edit_appointment_path, class: "button is-small button is-danger" %>
         
-          
-      </div>   
+        </p>
+        <p>
+        <%= button_to "Delete", @appointment, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-small is-danger" %>
+      </p>
+      </div>        
     </div>
 
     <br><br>
