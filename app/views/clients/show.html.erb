@@ -2,11 +2,13 @@
   <div class="container">
     <div class="box">
       <h1 class="title is-3"><%= @client.name %></h1>
-      <p>Email: <%= @client.email %></p>
-      <p>Phone Number: <%= @client.phone_number %></p>    
+      <p><strong>Email:</strong> <%= @client.email %></p>
+      <p><strong>Phone:</strong>  <%= @client.phone_number %></p>            
+      <%= link_to "Edit", edit_client_path(@client), class: "button is-small"%>
+      <%= link_to "Delete", edit_client_path(@client), class: "button is-small is-danger"%> 
     </div>
     <div class="block">
-      <%= link_to "Back", clients_path %>
+      <%= link_to "Back", clients_path, class: "button is-info" %>
     </div>      
   </div>
 </section>

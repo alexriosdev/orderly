@@ -6,23 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# IGNORE SEEDS 
-# require 'faker'
-# Department.destroy_all
-# User.destroy_all
-# Client.destroy_all
-# Appointment.destroy_all
+require 'faker'
+Client.destroy_all
 
-
-# # Create two departments
-# 2.times {
-#   Department.create(
-#     name: Faker::Job.field
-#   )
-# }
-
-# # UNABLE TO CREATE USER
-# # COULD DEVISE BE THE PROBLEM?
+# Create Random Clients 
+5.times {
+  Client.create(
+    name: Faker::Name.unique.name,
+    phone_number: Faker::PhoneNumber.phone_number,
+    email: Faker::Internet.email
+  )
+}
 
 # user = User.new(
 #   name: "Alex Dynamite",
@@ -36,26 +30,3 @@
 # )
 # # user.skip_confirmation!
 # user.save!
-
-# Create client
-3.times {
-  Client.create(
-    name: Faker::Name.unique.name,
-    phone_number: Faker::PhoneNumber.phone_number,
-    email: Faker::Internet.email
-  )
-}
-
-# # Set up appointments
-# Appointment.create(
-#   purpose: Faker::Lorem.word,
-#   message: Faker::Lorem.sentence,
-#   start_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long),
-#   end_time: Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :long),
-#   user_id: User.first.id,
-#   client_id: Client.first.id
-# )
-
-# MODELS AND MIGRATIONS COMPLETE
-# SET UP ASSOCIATIONS 
-

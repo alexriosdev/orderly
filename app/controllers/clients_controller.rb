@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_client, only: [:show, :edit, :update]
 
   def index
@@ -14,18 +15,27 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new(strong_params)
-    @client.save
-    redirect_to clients_path
+    if @client.valid?
+      @client.save
+      redirect_to client_path(@client)
+    else
+      flash[:errors] = @client.errors.full_messages
+      redirect_to new_client_path
+    end
   end
 
-  def edit    
+  def edit
   end
 
   def update
     @client.assign_attributes(strong_params)
-    @client.update(strong_params)
-    @client.save
-    redirect_to clients_path
+    if @client.valid?
+      @client.update(strong_params)   
+      redirect_to client_path(@client)
+    else
+      flash[:errors] = @appointment.errors.full_messages
+      redirect_to edit_appointment_path
+    end
   end
 
   private

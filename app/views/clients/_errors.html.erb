@@ -1,0 +1,15 @@
+<% if flash[:errors] %>
+  <div class="notification is-danger">
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(flash[:errors].count, "error") %>
+        prohibited this form from being saved:
+      </h2>
+      <ul>
+        <% flash[:errors].each do |error| %>
+          <li> <%= error %></li>
+        <% end %>    
+      </ul>
+    </div>  
+  </div>
+<% end %>
