@@ -33,8 +33,8 @@ class ClientsController < ApplicationController
       @client.update(strong_params)   
       redirect_to client_path(@client)
     else
-      flash[:errors] = @appointment.errors.full_messages
-      redirect_to edit_appointment_path
+      flash[:errors] = @client.errors.full_messages
+      redirect_to edit_client_path
     end
   end
   
