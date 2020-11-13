@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_appointment, only: [:show, :edit, :update]
+  before_action :find_appointment, only: [:show, :edit, :update, :destroy]
   
   def index
     @user = current_user
@@ -40,6 +40,11 @@ class AppointmentsController < ApplicationController
       flash[:errors] = @appointment.errors.full_messages
       redirect_to edit_appointment_path
     end
+  end
+
+  def destroy
+    @appointment.destroy
+    redirect_to appointments_path
   end
 
   private

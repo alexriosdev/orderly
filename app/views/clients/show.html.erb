@@ -5,7 +5,7 @@
       <p><strong>Email:</strong> <%= @client.email %></p>
       <p><strong>Phone:</strong>  <%= @client.phone_number %></p>            
       <%= link_to "Edit", edit_client_path(@client), class: "button is-small"%>
-      <%= link_to "Delete", edit_client_path(@client), class: "button is-small is-danger"%> 
+      <%= button_to "Delete", @client, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-small is-danger" %>
     </div>
     <div class="block">
       <%= link_to "Back", clients_path, class: "button is-info" %>
