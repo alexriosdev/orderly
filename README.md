@@ -1,24 +1,33 @@
-# README
+# Orderly
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Orderly is a appointment planner aimed towards employees to help them schedule and organize meetings with clients in a large organization.
 
-Things you may want to cover:
+![demo](./lib/assets/demo.gif)
 
-* Ruby version
+## Installing
 
-* System dependencies
+1. Install dependencies
 
-* Configuration
+   ```bash
+   bundle install
+   ```
 
-* Database creation
+2. Seed the database
 
-* Database initialization
+   ```bash
+   rails db:migrate && rails db:seed
+   ```
 
-* How to run the test suite
+3. Start the server
 
-* Services (job queues, cache servers, search engines, etc.)
+   ```bash
+   rails s
+   ```
 
-* Deployment instructions
+## Built with
 
-* ...
+- [Ruby](https://www.ruby-lang.org/en/)
+- [Rails](https://rubyonrails.org/)
+- [Bulma](https://bulma.io/)
+- [Devise](https://github.com/heartcombo/devise)
+- [Faker](https://github.com/faker-ruby/faker)
